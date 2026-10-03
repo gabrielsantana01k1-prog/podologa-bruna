@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 56" role="img" aria-label="Podóloga Bruna Augusta">
+  <g fill="#2F6FB5" transform="translate(4 6) scale(0.56)">
+    <ellipse cx="34" cy="52" rx="16" ry="24"/><ellipse cx="22" cy="14" rx="7" ry="9"/><ellipse cx="35" cy="8" rx="5" ry="6.5"/><ellipse cx="45" cy="11" rx="4.2" ry="5.5"/><ellipse cx="53" cy="17" rx="3.6" ry="4.6"/><ellipse cx="59" cy="25" rx="3" ry="3.8"/>
+  </g>
+  <text x="48" y="16" font-family="Montserrat, system-ui, sans-serif" font-weight="600" font-size="8" letter-spacing="2.2" fill="#2F6FB5">PODÓLOGA</text>
+  <text x="47" y="38" font-family="Montserrat, system-ui, sans-serif" font-weight="800" font-size="24" letter-spacing="1" fill="#16325C">BRUNA</text>
+  <text x="128" y="46" font-family="'Brush Script MT', 'Segoe Script', 'Snell Roundhand', cursive" font-style="italic" font-size="18" fill="#2F6FB5">Augusta</text>
+</svg>
