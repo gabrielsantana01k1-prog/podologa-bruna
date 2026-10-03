@@ -17,6 +17,13 @@ window.CASOS = [
     depois: "assets/img/caso-calos-1-depois-640.webp"
   },
   {
+    servico: "Micose de unha",
+    titulo: "Unhas espessadas e amareladas no dedão",
+    legenda: "Desbaste da unha, limpeza das laterais e orientação de tratamento. Foto após o atendimento, com a unha fina e a pele ao redor íntegra.",
+    antes: "assets/img/caso-micose-1-antes-640.webp",
+    depois: "assets/img/caso-micose-1-depois-640.webp"
+  },
+  {
     servico: "Verrugas plantares",
     titulo: "Verruga plantar na sola do pé",
     legenda: "Tratamento em sessões, com acompanhamento até a pele voltar ao normal.",
