@@ -12,19 +12,18 @@
     const q4 = limpar(r.q4);
     const servico = limpar(r.servico);
 
-    const partes = ["Olá, vim do site."];
-    if (nome) partes.push("Me chamo " + nome + ".");
-    if (servico) partes.push("Serviço de interesse: " + servico + ".");
-
-    const queixa = [];
-    if (q1) queixa.push(q1.charAt(0).toLowerCase() + q1.slice(1));
-    if (q2.length) queixa.push("em: " + q2.join(", ").toLowerCase());
-    if (q3) queixa.push(q3.charAt(0).toLowerCase() + q3.slice(1));
-    if (queixa.length) partes.push("Minha queixa: " + queixa.join(", ") + ".");
-
-    if (q4) partes.push("O que espero: " + q4.charAt(0).toLowerCase() + q4.slice(1) + ".");
-    partes.push("Pode me ajudar a agendar?");
-    return partes.join(" ");
+    // Formato do WhatsApp: *negrito* e quebras de linha
+    const linhas = ["Olá, Bruna! Vim pelo site e quero agendar uma avaliação. 👣", ""];
+    const campo = (rotulo, valor) => { if (valor) linhas.push("*" + rotulo + ":* " + valor); };
+    campo("Nome", nome);
+    campo("Serviço de interesse", servico);
+    campo("O que incomoda", q1);
+    campo("Onde", q2.join(", "));
+    campo("Há quanto tempo", q3);
+    campo("O que espero", q4);
+    if (linhas.length === 2) linhas.pop();
+    linhas.push("", "Pode me ajudar a agendar?");
+    return linhas.join("\n");
   }
 
   // Qual opção da pergunta 1 corresponde ao serviço clicado no card
