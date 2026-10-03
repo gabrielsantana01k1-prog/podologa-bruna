@@ -408,6 +408,77 @@
   <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.1.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.2c0-.2-.2-.2-.4-.3z"/></svg>
 </a>
 
+<!-- TRIAGEM ANTES DO WHATSAPP -->
+<dialog id="triagem" class="m-auto w-[calc(100vw-2rem)] max-w-lg rounded-3xl bg-white p-0 text-marinho shadow-2xl backdrop:bg-marinho/60" aria-labelledby="triagem-titulo">
+  <form method="dialog" class="max-h-[85vh] overflow-y-auto p-6 md:p-8" novalidate>
+    <div class="flex items-start justify-between gap-4">
+      <div>
+        <p class="font-titulo text-xs font-bold uppercase tracking-[0.18em] text-azul">Antes de falar com a Bruna</p>
+        <h2 id="triagem-titulo" class="mt-1 text-xl normal-case tracking-normal">Conta rapidinho o que você precisa</h2>
+        <p class="mt-1 text-sm text-marinho/75">4 toques e a Bruna já te responde sabendo como ajudar.</p>
+      </div>
+      <button type="button" data-fechar class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-azul-claro text-marinho hover:bg-azul hover:text-white" aria-label="Fechar">✕</button>
+    </div>
+
+    <fieldset class="mt-6">
+      <legend class="font-semibold">1. O que está te incomodando hoje?</legend>
+      <div class="mt-2 flex flex-wrap gap-2">
+        <label class="cursor-pointer rounded-full border border-azul-claro px-3 py-1.5 text-sm has-[:checked]:border-azul has-[:checked]:bg-azul has-[:checked]:text-white"><input type="radio" name="q1" value="Unha encravada" class="sr-only">Unha encravada</label>
+        <label class="cursor-pointer rounded-full border border-azul-claro px-3 py-1.5 text-sm has-[:checked]:border-azul has-[:checked]:bg-azul has-[:checked]:text-white"><input type="radio" name="q1" value="Dor ao andar ou ficar em pé" class="sr-only">Dor ao andar ou ficar em pé</label>
+        <label class="cursor-pointer rounded-full border border-azul-claro px-3 py-1.5 text-sm has-[:checked]:border-azul has-[:checked]:bg-azul has-[:checked]:text-white"><input type="radio" name="q1" value="Calos ou rachaduras" class="sr-only">Calos ou rachaduras</label>
+        <label class="cursor-pointer rounded-full border border-azul-claro px-3 py-1.5 text-sm has-[:checked]:border-azul has-[:checked]:bg-azul has-[:checked]:text-white"><input type="radio" name="q1" value="Micose ou unha com aparência diferente" class="sr-only">Micose ou unha com aparência diferente</label>
+        <label class="cursor-pointer rounded-full border border-azul-claro px-3 py-1.5 text-sm has-[:checked]:border-azul has-[:checked]:bg-azul has-[:checked]:text-white"><input type="radio" name="q1" value="Quero cuidar dos meus pés (prevenção / estética)" class="sr-only">Quero cuidar dos meus pés (prevenção / estética)</label>
+        <label class="cursor-pointer rounded-full border border-azul-claro px-3 py-1.5 text-sm has-[:checked]:border-azul has-[:checked]:bg-azul has-[:checked]:text-white"><input type="radio" name="q1" value="Outro assunto" class="sr-only">Outro assunto</label>
+      </div>
+    </fieldset>
+
+    <fieldset class="mt-5">
+      <legend class="font-semibold">2. Onde é? <span class="font-normal text-marinho/75">(pode marcar mais de um)</span></legend>
+      <div class="mt-2 flex flex-wrap gap-2">
+        <label class="cursor-pointer rounded-full border border-azul-claro px-3 py-1.5 text-sm has-[:checked]:border-azul has-[:checked]:bg-azul has-[:checked]:text-white"><input type="checkbox" name="q2" value="Dedão" class="sr-only">Dedão</label>
+        <label class="cursor-pointer rounded-full border border-azul-claro px-3 py-1.5 text-sm has-[:checked]:border-azul has-[:checked]:bg-azul has-[:checked]:text-white"><input type="checkbox" name="q2" value="Outros dedos" class="sr-only">Outros dedos</label>
+        <label class="cursor-pointer rounded-full border border-azul-claro px-3 py-1.5 text-sm has-[:checked]:border-azul has-[:checked]:bg-azul has-[:checked]:text-white"><input type="checkbox" name="q2" value="Sola do pé" class="sr-only">Sola do pé</label>
+        <label class="cursor-pointer rounded-full border border-azul-claro px-3 py-1.5 text-sm has-[:checked]:border-azul has-[:checked]:bg-azul has-[:checked]:text-white"><input type="checkbox" name="q2" value="Calcanhar" class="sr-only">Calcanhar</label>
+        <label class="cursor-pointer rounded-full border border-azul-claro px-3 py-1.5 text-sm has-[:checked]:border-azul has-[:checked]:bg-azul has-[:checked]:text-white"><input type="checkbox" name="q2" value="Os dois pés" class="sr-only">Os dois pés</label>
+      </div>
+    </fieldset>
+
+    <fieldset class="mt-5">
+      <legend class="font-semibold">3. Há quanto tempo?</legend>
+      <div class="mt-2 flex flex-wrap gap-2">
+        <label class="cursor-pointer rounded-full border border-azul-claro px-3 py-1.5 text-sm has-[:checked]:border-azul has-[:checked]:bg-azul has-[:checked]:text-white"><input type="radio" name="q3" value="Comecei a sentir agora" class="sr-only">Comecei a sentir agora</label>
+        <label class="cursor-pointer rounded-full border border-azul-claro px-3 py-1.5 text-sm has-[:checked]:border-azul has-[:checked]:bg-azul has-[:checked]:text-white"><input type="radio" name="q3" value="Algumas semanas" class="sr-only">Algumas semanas</label>
+        <label class="cursor-pointer rounded-full border border-azul-claro px-3 py-1.5 text-sm has-[:checked]:border-azul has-[:checked]:bg-azul has-[:checked]:text-white"><input type="radio" name="q3" value="Meses" class="sr-only">Meses</label>
+        <label class="cursor-pointer rounded-full border border-azul-claro px-3 py-1.5 text-sm has-[:checked]:border-azul has-[:checked]:bg-azul has-[:checked]:text-white"><input type="radio" name="q3" value="Já tratei antes e voltou" class="sr-only">Já tratei antes e voltou</label>
+      </div>
+    </fieldset>
+
+    <fieldset class="mt-5">
+      <legend class="font-semibold">4. O que você espera da consulta?</legend>
+      <div class="mt-2 flex flex-wrap gap-2">
+        <label class="cursor-pointer rounded-full border border-azul-claro px-3 py-1.5 text-sm has-[:checked]:border-azul has-[:checked]:bg-azul has-[:checked]:text-white"><input type="radio" name="q4" value="Aliviar a dor logo" class="sr-only">Aliviar a dor logo</label>
+        <label class="cursor-pointer rounded-full border border-azul-claro px-3 py-1.5 text-sm has-[:checked]:border-azul has-[:checked]:bg-azul has-[:checked]:text-white"><input type="radio" name="q4" value="Resolver de vez" class="sr-only">Resolver de vez</label>
+        <label class="cursor-pointer rounded-full border border-azul-claro px-3 py-1.5 text-sm has-[:checked]:border-azul has-[:checked]:bg-azul has-[:checked]:text-white"><input type="radio" name="q4" value="Avaliar e entender o que é" class="sr-only">Avaliar e entender o que é</label>
+        <label class="cursor-pointer rounded-full border border-azul-claro px-3 py-1.5 text-sm has-[:checked]:border-azul has-[:checked]:bg-azul has-[:checked]:text-white"><input type="radio" name="q4" value="Cuidado de rotina" class="sr-only">Cuidado de rotina</label>
+      </div>
+    </fieldset>
+
+    <label class="mt-5 block">
+      <span class="font-semibold">Seu nome <span class="font-normal text-marinho/75">(opcional)</span></span>
+      <input type="text" name="nome" id="triagem-nome" autocomplete="given-name" maxlength="40" placeholder="Como a Bruna pode te chamar?" class="mt-2 w-full rounded-xl border border-azul-claro px-4 py-2.5 text-base outline-none focus:border-azul">
+    </label>
+
+    <div class="mt-6 flex flex-col gap-3">
+      <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-full bg-whats px-6 py-3.5 text-base font-bold text-white hover:brightness-95">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.1.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.2c0-.2-.2-.2-.4-.3z"/></svg>
+        Ir para o WhatsApp
+      </button>
+      <a id="triagem-pular" href="https://wa.me/553182773351?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20quero%20agendar%20uma%20avalia%C3%A7%C3%A3o" target="_blank" rel="noopener" class="js-wa text-center text-sm font-semibold text-marinho/75 underline underline-offset-4 hover:text-azul">Pular e falar direto</a>
+    </div>
+  </form>
+</dialog>
+
+<script src="assets/js/triagem.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 </body>
 </html>

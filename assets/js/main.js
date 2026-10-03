@@ -35,3 +35,46 @@ if (mapa) {
     }
   }, { rootMargin: "300px" }).observe(mapa);
 }
+
+// Triagem antes do WhatsApp: abre a janela, monta a mensagem e só então leva à conversa
+const triagem = document.getElementById("triagem");
+const form = triagem?.querySelector("form");
+const pular = document.getElementById("triagem-pular");
+if (triagem && form && pular && typeof triagem.showModal === "function" && window.Triagem) {
+  let servicoAtual = "";
+
+  document.querySelectorAll(".js-wa").forEach((a) => {
+    if (triagem.contains(a)) return;
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      form.reset();
+      const msg = a.dataset.msg || "";
+      servicoAtual = (msg.match(/agendar: (.+)$/) || [])[1] || "";
+      if (/domicílio/i.test(msg)) servicoAtual = "Atendimento em domicílio";
+      const opcao = window.Triagem.opcaoPorServico(servicoAtual);
+      const radio = opcao && form.querySelector(`input[name="q1"][value="${opcao}"]`);
+      if (radio) radio.checked = true;
+      pular.href = a.href;
+      triagem.showModal();
+    });
+  });
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const d = new FormData(form);
+    const msg = window.Triagem.montarMensagem({
+      nome: d.get("nome"),
+      q1: d.get("q1"),
+      q2: d.getAll("q2"),
+      q3: d.get("q3"),
+      q4: d.get("q4"),
+      servico: servicoAtual,
+    });
+    triagem.close();
+    window.open(WA + encodeURIComponent(msg), "_blank", "noopener");
+  });
+
+  triagem.querySelector("[data-fechar]")?.addEventListener("click", () => triagem.close());
+  // Clique fora da janela fecha
+  triagem.addEventListener("click", (e) => { if (e.target === triagem) triagem.close(); });
+}
