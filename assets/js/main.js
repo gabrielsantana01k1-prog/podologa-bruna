@@ -43,19 +43,52 @@ const pular = document.getElementById("triagem-pular");
 if (triagem && form && pular && typeof triagem.showModal === "function" && window.Triagem) {
   let servicoAtual = "";
 
+  const abrirTriagem = (a) => {
+    form.reset();
+    const msg = a.dataset.msg || "";
+    servicoAtual = (msg.match(/agendar: (.+)$/) || [])[1] || "";
+    if (/domicílio/i.test(msg)) servicoAtual = "Atendimento em domicílio";
+    const opcao = window.Triagem.opcaoPorServico(servicoAtual);
+    const radio = opcao && form.querySelector(`input[name="q1"][value="${opcao}"]`);
+    if (radio) radio.checked = true;
+    pular.href = a.href;
+    triagem.showModal();
+  };
+
+  // Antes e depois: cards com data-casos abrem a janela de casos antes da triagem
+  const caso = document.getElementById("caso");
+  const casos = window.CASOS || [];
+  const abrirCaso = (a) => {
+    const servico = (a.dataset.msg.match(/agendar: (.+)$/) || [])[1] || "";
+    const lista = casos.filter((c) => c.servico === servico);
+    if (!caso || !lista.length || typeof caso.showModal !== "function") return false;
+    caso.querySelector("#caso-servico").textContent = servico;
+    caso.querySelector("#caso-titulo").textContent = lista.length > 1 ? `${lista.length} casos reais` : lista[0].titulo;
+    caso.querySelector("#caso-lista").innerHTML = lista.map((c) => `
+      <figure>
+        ${lista.length > 1 ? `<figcaption class="mb-2 font-semibold">${c.titulo}</figcaption>` : ""}
+        <div class="grid grid-cols-2 gap-2">
+          <div class="relative"><img src="${c.antes}" alt="Antes: ${c.titulo}" loading="lazy" width="640" height="853" class="aspect-[4/5] w-full rounded-2xl object-cover"><span class="absolute left-2 top-2 rounded-full bg-marinho/85 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-white">Antes</span></div>
+          <div class="relative"><img src="${c.depois}" alt="Depois: ${c.titulo}" loading="lazy" width="640" height="853" class="aspect-[4/5] w-full rounded-2xl object-cover"><span class="absolute left-2 top-2 rounded-full bg-azul px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-white">Depois</span></div>
+        </div>
+        ${c.legenda ? `<p class="mt-2 text-sm text-marinho/75">${c.legenda}</p>` : ""}
+      </figure>`).join("");
+    const agendar = caso.querySelector("#caso-agendar");
+    agendar.dataset.msg = a.dataset.msg;
+    agendar.href = a.href;
+    agendar.onclick = (e) => { e.preventDefault(); caso.close(); abrirTriagem(agendar); };
+    caso.showModal();
+    return true;
+  };
+  caso?.querySelector("[data-fechar]")?.addEventListener("click", () => caso.close());
+  caso?.addEventListener("click", (e) => { if (e.target === caso) caso.close(); });
+
   document.querySelectorAll(".js-wa").forEach((a) => {
-    if (triagem.contains(a)) return;
+    if (triagem.contains(a) || caso?.contains(a)) return;
     a.addEventListener("click", (e) => {
       e.preventDefault();
-      form.reset();
-      const msg = a.dataset.msg || "";
-      servicoAtual = (msg.match(/agendar: (.+)$/) || [])[1] || "";
-      if (/domicílio/i.test(msg)) servicoAtual = "Atendimento em domicílio";
-      const opcao = window.Triagem.opcaoPorServico(servicoAtual);
-      const radio = opcao && form.querySelector(`input[name="q1"][value="${opcao}"]`);
-      if (radio) radio.checked = true;
-      pular.href = a.href;
-      triagem.showModal();
+      if ("casos" in a.dataset && abrirCaso(a)) return;
+      abrirTriagem(a);
     });
   });
 
